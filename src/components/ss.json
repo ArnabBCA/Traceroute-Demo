@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "name": "175.158.45.67",
+    "type": "source"
+  },
+  {
+    "id": 1,
+    "name": "192.168.1.1",
+    "minRTT": 1.902,
+    "maxRTT": 3.095,
+    "type": "host"
+  },
+  //Other nodes 
+  {
+    "id": 9,
+    "dst": "45.60.158.227",
+    "name": "45.60.158.227",
+    "minRTT": 1.572,
+    "maxRTT": 19.635,
+    "type": "target"
+  }
+]
+[
+    {
+        "source": 0,
+        "target": 1
+    },
+    {
+        "source": 1,
+        "target": 2
+    },
+    //Other links
+    {
+        "source": 8,
+        "target": 9
+    }
+]
