@@ -116,8 +116,11 @@ const layouts = reactive({
 </script>
 
 <template>
-  <button @click="updateLayout('LR')">Left to Right</button>
-  <button @click="updateLayout('TB')">Top to Bottom</button>
+  <div class="info">
+    <span>Change Graph Layout Direction</span>
+    <button @click="updateLayout('LR')">Left to Right</button>
+    <button @click="updateLayout('TB')">Top to Bottom</button>
+  </div>
   <div class="graphContainer">
     <v-network-graph
       ref="graph"

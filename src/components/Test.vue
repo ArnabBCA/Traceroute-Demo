@@ -7,13 +7,14 @@ const nodes = ref([]);
 const edges = ref([]);
 
 const tracerouteData = ref([]);
+const measurementId=ref(67485894);
 
 const fetchTraceData = async () => {
   try {
     const response = await axios.get(
-      "https://atlas.ripe.net/api/v2/measurements/67485894/results"
+      `https://atlas.ripe.net/api/v2/measurements/${measurementId.value}/results`
     );
-    console.log(response.data);
+    console.log("API response data: ",response.data);
     tracerouteData.value = response.data; // Storing the response data
   } catch (error) {
     console.error(error); // Handling error
@@ -121,7 +122,7 @@ const graphData = () => {
           maxRTT: Math.max(...rtt),
         });
       }
-      console.log("-------");
+      //console.log("-------");
     });
   });
   insertDestinationNode();
@@ -212,13 +213,18 @@ watch(tracerouteData, () => {
   graphData();
 });
 const show = () => {
-  console.log(toRaw(nodes.value));
-  console.log(toRaw(edges.value));
+  console.log("Nodes Data",toRaw(nodes.value));
+  console.log("Links Data",toRaw(edges.value));
 };
 </script>
 
 <template>
-  <h1>Traceroute</h1>
-  <button @click="show">Show Data</button>
+  <div class="info">
+    <h1>Traceroute</h1>
+    <button @click="show">Show Data</button>
+    <span>You can see the response data and the values of Nodes and Edges in the console <span style="color: red;">(Note: The errors in the colsole are from Tracemon)</span></span>
+  </div>
+  <h2 style="text-align: center;">Traceroute Measurement ID used: {{ measurementId }}</h2>
   <Graph :nodes="nodes" :edges="edges" />
+  <h2 style="text-align: center;">For refference purpose we can compare with Tracemon</h2>
 </template>
