@@ -222,9 +222,8 @@ const show = () => {
   <div class="info">
     <h1>Traceroute</h1>
     <button @click="show">Show Data</button>
-    <span>You can see the response data and the values of Nodes and Edges in the console <span style="color: red;">(Note: The errors in the colsole are from Tracemon)</span></span>
+    <span>You can see the response data and the values of Nodes and Edges in the console</span>
   </div>
   <h2 style="text-align: center;">Traceroute Measurement ID used: {{ measurementId }}</h2>
   <Graph :nodes="nodes" :edges="edges" />
-  <h2 style="text-align: center;">For refference purpose we can compare with Tracemon</h2>
 </template>
